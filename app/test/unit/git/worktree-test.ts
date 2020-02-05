@@ -32,6 +32,13 @@ describe('git/worktree', () => {
         const first = result[0]
         expect(first.head).toBe('0000000000000000000000000000000000000000')
 
+        if (process.platform == 'win32') {
+          console.log(`user: ${process.env.USER || "(unknown)"}`)
+          console.log(`path = ${path}`)
+          console.log(`first.path = ${first.path}`)
+          console.log(`env: ${process.env}`)
+        }
+
         // we use realpathSync here because git and windows/macOS report different
         // paths even though they are the same folder
         expect(realpathSync(first.path)).toBe(realpathSync(path))
