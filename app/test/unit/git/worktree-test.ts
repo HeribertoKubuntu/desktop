@@ -36,7 +36,7 @@ describe('git/worktree', () => {
           console.log(`user: ${process.env.USER || '(unknown)'}`)
           console.log(`path = ${path}`)
           console.log(`first.path = ${first.path}`)
-          console.log(`env: ${process.env}`)
+          console.log(`env: ${JSON.stringify(process.env)}`)
         }
 
         // we use realpathSync here because git and windows/macOS report different
